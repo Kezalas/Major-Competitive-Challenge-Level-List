@@ -8,7 +8,7 @@
     "percentToQualify": "100",
     "password": "Free To Copy",
     "records": [
-    {
+        {
             "user": "Greitas",
             "link": "https://medal.tv/games/geometry-dash/clips/nzWdFWMcQ2o0LWEwt?invite=cr-MSxuOFEsNDA5NjU2MTg0",
             "percent": 100,
@@ -16,4 +16,4 @@
             "hz": 240
         }
     ]
-
+}
