@@ -7,5 +7,13 @@
     "verification": "https://youtu.be/BADgd7ra5jU",
     "percentToQualify": "100",
     "password": "Free To Copy",
-    "records": []
+    "records": [
+        {
+            "user": "frz14",
+            "link": "https://medal.tv/games/geometry-dash/clips/nzW57eHeREyhTJ6uh?invite=cr-MSxOUHMsNDA5NjU2MTg0",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
+        }
+    ]
 }
