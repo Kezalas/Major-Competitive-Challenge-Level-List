@@ -7,5 +7,13 @@
     "verification": "https://www.youtube.com/watch?v=YclrKCwEQ6M",
     "percentToQualify": "100",
     "password": "Free To Copy",
-    "records": []
+    "records": [
+        {
+            "user": "Greitas",
+            "link": "https://medal.tv/games/geometry-dash/clips/nyAMnoqfY2uZbAHdn?invite=cr-MSxWQjEsNDA5NjU2MTg0",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
+        }
+    ]
 }
