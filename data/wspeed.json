@@ -40,7 +40,7 @@
             "user": "Mitabro",
             "link": "https://youtu.be/AHtsVvVrdiI?is=3jbQjE6ATZluPPAU",
             "percent": 100,
-            "mobile": false,
+            "mobile": true,
             "hz": 240
         }
     ]
