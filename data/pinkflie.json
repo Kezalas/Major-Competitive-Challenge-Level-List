@@ -1,11 +1,19 @@
 {
     "id": 96850202,
-    "name": "Pinky fly",
+    "name": "pinky flie",
     "author": "Justgdboi",
     "creators": ["Justgdboi"],
     "verifier": "flourel_",
     "verification": "https://youtu.be/mA9ZRIlbGfs",
     "percentToQualify": "100",
     "password": "Free To Copy",
-    "records": []
+    "records": [
+{
+            "user": "Greitas",
+            "link": "https://medal.tv/games/geometry-dash/clips/nNnTZ5mjEBmiAbaoT?invite=cr-MSxDQzQsNDA5NjU2MTg0",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
+        }
+    ]
 }
