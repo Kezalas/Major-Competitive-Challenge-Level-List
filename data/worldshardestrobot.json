@@ -21,6 +21,13 @@
             "percent": 100,
             "mobile": false,
             "hz": 360
+                },
+           { 
+            "user": "tambri",
+            "link": "https://youtu.be/AsW_sS0hL2U",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
         }
     ]
 }
