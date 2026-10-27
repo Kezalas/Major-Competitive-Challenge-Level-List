@@ -28,6 +28,13 @@
             "percent": 100,
             "mobile": true,
             "hz": 120
+              },
+           { 
+            "user": "frz14",
+            "link": "https://medal.tv/games/geometry-dash/clips/nOlQEzad3PTtK8fLh?invite=cr-MSw4TDAsNDEzNzA5NTE0",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
         }
     ]
 }
