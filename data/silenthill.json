@@ -1,11 +1,19 @@
 {
     "id": 123817506,
     "name": "SILENT HILL",
-    "author": "Blendro",
-    "creators": ["Blendro"],
-    "verifier": "Baku Madarame",
-    "verification": "https://www.youtube.com/watch?v=0yB1mjrSenE",
+    "author": "Baku Madarame",
+    "creators": ["Baku Madarame"],
+    "verifier": "Blendro",
+    "verification": "https://www.youtube.com/watch?v=fdT-dUurmo8",
     "percentToQualify": "100",
     "password": "Free To Copy",
-    "records": []
+    "records": [      
+           { 
+            "user": "Baku Madarame",
+            "link": "https://www.youtube.com/watch?v=0yB1mjrSenE",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
+        }
+    ]
 }
