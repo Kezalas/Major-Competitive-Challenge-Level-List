@@ -7,5 +7,13 @@
     "verification": "https://www.youtube.com/watch?v=Y5lhGvDusWE",
     "percentToQualify": "100",
     "password": "Free To Copy",
-    "records": []
+    "records": [
+        {
+            "user": "tambri",
+            "link": "https://youtu.be/up3t0p7a0jI",
+            "percent": 100,
+            "mobile": false,
+            "hz": 240
+        }
+    ]
 }
