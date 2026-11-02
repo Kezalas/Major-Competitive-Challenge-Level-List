@@ -10,11 +10,11 @@ const scale = 3;
  * @param {Number} minPercent Minimum percentage required
  * @returns {Number}
  */
-export function score(rank, percent, minPercent) {
-    if (rank > 100) {
+export function score(rank, percent = 100, minPercent = 100) {
+    if (rank > POINT_RANKS) {
         return 0;
     }
-    if (rank > 75 && percent < 100) {
+    if (rank > PROGRESS_RANKS && percent < 100) {
         return 0;
     }
 
@@ -51,4 +51,25 @@ export function round(num) {
             scale
         );
     }
+}
+
+/** Ranks 1..150 accept records; everything below is Legacy (locked, no points). */
+export const MAIN_LIST_SIZE = 150;
+
+/** Only ranks 1..100 give points. */
+export const POINT_RANKS = 100;
+
+/** Ranks 1..75 also accept progress records (from the level's "percent to qualify"). */
+export const PROGRESS_RANKS = 75;
+
+export function isLegacy(rank) {
+    return rank > MAIN_LIST_SIZE;
+}
+
+/** Lowest percentage a record on this rank needs (null = no records accepted). */
+export function minPercentFor(rank, percentToQualify) {
+    if (isLegacy(rank)) return null;
+    if (rank > PROGRESS_RANKS) return 100;
+    const p = Number(percentToQualify);
+    return p >= 1 && p <= 100 ? p : 100;
 }
