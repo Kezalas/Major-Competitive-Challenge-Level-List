@@ -1,11 +1,15 @@
 import { fetchLeaderboard } from '../content.js';
-import { localize } from '../util.js';
+import { localize, playerRoute, podium } from '../util.js';
 
 import Spinner from '../components/Spinner.js';
+import Flag from '../components/Flag.js';
+import ProfileSummary from '../components/ProfileSummary.js';
 
 export default {
     components: {
         Spinner,
+        Flag,
+        ProfileSummary,
     },
     data: () => ({
         leaderboard: [],
@@ -27,7 +31,7 @@ export default {
                 <div class="board-container">
                     <table class="board">
                         <tr v-for="(ientry, i) in leaderboard">
-                            <td class="rank">
+                            <td class="rank" :class="podium(i + 1)">
                                 <p class="type-label-lg">#{{ i + 1 }}</p>
                             </td>
                             <td class="total">
@@ -35,7 +39,7 @@ export default {
                             </td>
                             <td class="user" :class="{ 'active': selected == i }">
                                 <button @click="selected = i">
-                                    <span class="type-label-lg">{{ ientry.user }}</span>
+                                    <span class="type-label-lg"><Flag :code="ientry.nation"></Flag>{{ ientry.user }}</span>
                                 </button>
                             </td>
                         </tr>
@@ -43,8 +47,7 @@ export default {
                 </div>
                 <div class="player-container">
                     <div class="player">
-                        <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
-                        <h3>{{ entry.total }}</h3>
+                        <ProfileSummary compact :name="entry.user" :entry="entry" :rank="selected + 1" :profile="entry.profile"></ProfileSummary>
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length}})</h2>
                         <table class="table">
                             <tr v-for="score in entry.verified">
@@ -73,7 +76,7 @@ export default {
                                 </td>
                             </tr>
                         </table>
-                        <h2 v-if="entry.progressed.length > 0">Progressed ({{entry.progressed.length}})</h2>
+                        <h2 v-if="entry.progressed.length > 0">Progressed ({{ entry.progressed.length }})</h2>
                         <table class="table">
                             <tr v-for="score in entry.progressed">
                                 <td class="rank">
@@ -106,5 +109,7 @@ export default {
     },
     methods: {
         localize,
+        podium,
+        playerRoute,
     },
 };

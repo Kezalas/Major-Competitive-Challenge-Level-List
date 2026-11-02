@@ -1,26 +1,55 @@
-:root {
-    --color-background: white;
-    --color-on-background: black;
-    --color-background-hover: #eee;
-    --color-on-background-hover: black;
+/* ---------------------------------------------------------------
+   Colour tokens. "main.dark / header.dark" = dark theme (default),
+   without .dark = light theme (toggle in the nav bar).
+   --------------------------------------------------------------- */
+/* MCCLL colours: black and white. Status colours (accept / reject, errors) stay coloured. */
+:root,
+main,
+header {
+    color-scheme: light;
+    --color-background: #f4f4f4;
+    --color-surface: #ffffff;
+    --color-surface-2: #ededed;
+    --color-border: rgba(0, 0, 0, 0.12);
+    --color-on-background: #0a0a0a;
+    --color-muted: #5f5f5f;
+    --color-background-hover: #e6e6e6;
+    --color-on-background-hover: #0a0a0a;
     --color-primary: #000000;
-    --color-on-primary: white;
-    --color-error: #de0000;
+    --color-primary-2: #000000;
+    --gradient-primary: var(--color-primary);
+    --color-primary-disabled: #cfcfcf;
+    --color-on-primary: #ffffff;
+    --color-error: #e5384d;
     --color-on-error: white;
+    --color-success: #16a35a;
+    --color-warn: #d98b00;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    --radius: 0.9rem;
 }
 
 main.dark,
 header.dark {
     color-scheme: dark;
-    --color-background: #1c1b1f;
-    --color-on-background: black;
-    --color-background-hover: #27262c;
-    --color-on-background-hover: white;
-    --color-primary: #000000;
-    --color-primary-disabled: #1f213c;
-    --color-on-primary: white;
-    --color-error: #de0000;
+    --color-background: #000000;
+    --color-surface: #111111;
+    --color-surface-2: #1b1b1b;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-on-background: #f2f2f2;
+    --color-muted: #9a9a9a;
+    --color-background-hover: #202020;
+    --color-on-background-hover: #ffffff;
+    --color-primary: #ffffff;
+    --color-primary-2: #ffffff;
+    --color-primary-disabled: #2e2e2e;
+    --color-on-primary: #000000;
+    --color-error: #ff4d63;
     --color-on-error: white;
+    --color-success: #2ecc71;
+    --color-warn: #f0a500;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 html,

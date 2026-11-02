@@ -1,5 +1,15 @@
 # Welcome to the Geometry Dash Shitty List template!
 
+## Accounts, record submissions, packs and tournaments
+
+Records are submitted through player accounts and reviewed on the site, staff
+schedules tournaments (Supabase backend). Setup guide: [SUPABASE_SETUP.md](SUPABASE_SETUP.md).
+
+Until `js/config.js` is filled in, the site works exactly like before (list and
+leaderboard from `data/`). Once `supabase/import_json_levels.sql` has been run, levels,
+records and packs are managed on the website (Staff page) and the files in `data/` are
+only a backup. The FAQ below describes the old JSON workflow.
+
 # FAQ
 
 ---

@@ -10,26 +10,32 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-        <link rel="stylesheet" type="text/css" href="/css/typography.css" />
-        <link rel="stylesheet" type="text/css" href="/css/main.css" />
-        <link rel="stylesheet" type="text/css" href="/css/pages/list.css" />
+        <link rel="stylesheet" type="text/css" href="/css/reset.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/typography.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/main.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/list.css?v=2.0.6" />
         <link
             rel="stylesheet"
             type="text/css"
-            href="/css/pages/leaderboard.css"
+            href="/css/pages/leaderboard.css?v=2.0.6"
         />
-        <link rel="stylesheet" type="text/css" href="/css/pages/roulette.css" />
-        <link rel="stylesheet" type="text/css" href="/css/components/nav.css" />
-        <link rel="stylesheet" type="text/css" href="/css/components/btn.css" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/roulette.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/components/nav.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/components/btn.css?v=2.0.6" />
         <link
             rel="stylesheet"
             type="text/css"
-            href="/css/components/tabs.css"
+            href="/css/components/tabs.css?v=2.0.6"
         />
+        <link rel="stylesheet" type="text/css" href="/css/pages/forms.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/staff.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/player.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/packs.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/tournaments.css?v=2.0.6" />
+        <link rel="stylesheet" type="text/css" href="/css/theme.css?v=2.0.6" />
         <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
         <script type="module" src="/js/main.js"></script>
@@ -38,7 +44,7 @@
         <header :class="{ dark: store.dark }">
             <div class="logo">
                 <h2>MCCLL</h2>
-                <p>v1.0.0</p>
+                <p class="logo__version">v2.0</p>
             </div>
             <nav class="nav">
                 <router-link class="nav__tab" to="/">
@@ -49,6 +55,15 @@
                 </router-link>
                 <router-link class="nav__tab" to="/roulette">
                     <span class="type-label-lg">Roulette</span>
+                </router-link>
+                <router-link v-if="auth.enabled" class="nav__tab" to="/packs">
+                    <span class="type-label-lg">Packs</span>
+                </router-link>
+                <router-link v-if="auth.enabled" class="nav__tab" to="/tournaments">
+                    <span class="type-label-lg">Tournaments</span>
+                </router-link>
+                <router-link v-if="auth.isStaff" class="nav__tab" to="/staff">
+                    <span class="type-label-lg">Staff</span>
                 </router-link>
                 <div class="nav__actions">
                     <button
@@ -64,10 +79,28 @@
                     <a class="nav__icon" href="#">
                         <img src="/assets/discord.svg" alt="Discord Logo" />
                     </a>
-                    <!-- List record submission form, add a link to replace the '#' when putting a link to your list submission form-->
+                    <template v-if="auth.enabled">
+                        <router-link
+                            v-if="auth.user"
+                            class="nav__account type-label-lg"
+                            to="/account"
+                            >{{ auth.profile?.username || 'Account' }}</router-link
+                        >
+                        <router-link
+                            v-else
+                            class="nav__account type-label-lg"
+                            to="/login"
+                            >Log in</router-link
+                        >
+                        <router-link class="nav__cta type-label-lg" to="/submit"
+                            >Submit Record</router-link
+                        >
+                    </template>
+                    <!-- Old Google Form, only used while Supabase is not set up (js/config.js) -->
                     <a
+                        v-else
                         class="nav__cta type-label-lg"
-                        href="#"
+                        :href="GOOGLE_FORM_URL"
                         target="_blank"
                         >Submit Record</a
                     >
