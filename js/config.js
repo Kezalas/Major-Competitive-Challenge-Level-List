@@ -14,8 +14,8 @@
  * (list + leaderboard from /data), and "Submit Record" links to the
  * old Google Form below.
  */
-export const SUPABASE_URL = '';
-export const SUPABASE_ANON_KEY = '';
+export const SUPABASE_URL = 'https://rwfnjizsukwlzapskaaq.supabase.co';
+export const SUPABASE_ANON_KEY = 'sb_publishable_tkipDFdeLtqI8UIjcCWXgw_m9iTnB7Z';
 
 /** Fallback while Supabase is not configured. */
 export const GOOGLE_FORM_URL = '#';
