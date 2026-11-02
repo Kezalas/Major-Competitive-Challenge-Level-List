@@ -2,53 +2,54 @@
    Colour tokens. "main.dark / header.dark" = dark theme (default),
    without .dark = light theme (toggle in the nav bar).
    --------------------------------------------------------------- */
+/* MCCLL colours: black and white. Status colours (accept / reject, errors) stay coloured. */
 :root,
 main,
 header {
     color-scheme: light;
-    --color-background: #f3f5fb;
+    --color-background: #f4f4f4;
     --color-surface: #ffffff;
-    --color-surface-2: #eceff8;
-    --color-border: rgba(20, 28, 60, 0.1);
-    --color-on-background: #141a2e;
-    --color-muted: #5d6585;
-    --color-background-hover: #e4e8f4;
-    --color-on-background-hover: #141a2e;
-    --color-primary: #3d5afe;
-    --color-primary-2: #8b5cf6;
-    --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-2));
-    --color-primary-disabled: #c9d0ee;
-    --color-on-primary: white;
+    --color-surface-2: #ededed;
+    --color-border: rgba(0, 0, 0, 0.12);
+    --color-on-background: #0a0a0a;
+    --color-muted: #5f5f5f;
+    --color-background-hover: #e6e6e6;
+    --color-on-background-hover: #0a0a0a;
+    --color-primary: #000000;
+    --color-primary-2: #000000;
+    --gradient-primary: var(--color-primary);
+    --color-primary-disabled: #cfcfcf;
+    --color-on-primary: #ffffff;
     --color-error: #e5384d;
     --color-on-error: white;
     --color-success: #16a35a;
     --color-warn: #d98b00;
-    --shadow-card: 0 1px 2px rgba(20, 28, 60, 0.06), 0 8px 24px rgba(20, 28, 60, 0.06);
-    --shadow-glow: 0 2px 8px rgba(61, 90, 254, 0.18);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.18);
     --radius: 0.9rem;
 }
 
 main.dark,
 header.dark {
     color-scheme: dark;
-    --color-background: #0b0d16;
-    --color-surface: #131726;
-    --color-surface-2: #1a1f33;
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-on-background: #e9ebf5;
-    --color-muted: #9097b4;
-    --color-background-hover: #1e2438;
+    --color-background: #000000;
+    --color-surface: #111111;
+    --color-surface-2: #1b1b1b;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-on-background: #f2f2f2;
+    --color-muted: #9a9a9a;
+    --color-background-hover: #202020;
     --color-on-background-hover: #ffffff;
-    --color-primary: #5470ff;
-    --color-primary-2: #a35cff;
-    --color-primary-disabled: #262c4a;
-    --color-on-primary: white;
+    --color-primary: #ffffff;
+    --color-primary-2: #ffffff;
+    --color-primary-disabled: #2e2e2e;
+    --color-on-primary: #000000;
     --color-error: #ff4d63;
     --color-on-error: white;
     --color-success: #2ecc71;
     --color-warn: #f0a500;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.25);
-    --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 html,

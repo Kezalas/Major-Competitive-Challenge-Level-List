@@ -186,6 +186,9 @@ main.page-tournaments {
     fill: var(--color-primary-2);
     font-weight: 800;
 }
+.map-marker--selected .map-marker__count {
+    fill: var(--color-background);
+}
 .tourney-map-hint {
     text-align: center;
 }

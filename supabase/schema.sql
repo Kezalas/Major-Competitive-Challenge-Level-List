@@ -187,12 +187,6 @@ create trigger profiles_guard
     before update on public.profiles
     for each row execute function public.profiles_guard();
 
--- ranks 1..150 accept records, everything below is Legacy
-create or replace function public.main_list_size()
-returns integer
-language sql immutable
-as $$ select 150 $$;
-
 -- ranks 1..75 also accept progress (from the level's percent_to_qualify)
 create or replace function public.progress_ranks()
 returns integer
@@ -239,10 +233,6 @@ begin
         select placement, percent_to_qualify into lvl_rank, lvl_min
         from public.levels where path = new.level_path;
         if lvl_rank is not null then
-            -- Legacy (rank > 150) levels are locked: no new records
-            if lvl_rank > public.main_list_size() then
-                raise exception 'This level is on the Legacy list and does not accept records anymore.';
-            end if;
             -- progress only on the top 75, from the level's percent to qualify
             need := case when lvl_rank <= public.progress_ranks() then coalesce(lvl_min, 100) else 100 end;
             if new.percent < need then
@@ -459,7 +449,7 @@ create table if not exists public.packs (
     id           bigint generated always as identity primary key,
     name         text not null check (char_length(name) between 1 and 48),
     description  text check (description is null or char_length(description) <= 300),
-    color        text not null default '#0043dc' check (color ~ '^#[0-9a-fA-F]{6}$'),
+    color        text not null default '#444444' check (color ~ '^#[0-9a-fA-F]{6}$'),
     position     integer not null default 0,
     levels       text[] not null default '{}' check (cardinality(levels) <= 50),
     created_at   timestamptz not null default now()

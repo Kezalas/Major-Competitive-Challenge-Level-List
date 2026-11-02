@@ -5,7 +5,7 @@
 
 html,
 body {
-    background-color: #0b0d16;
+    background-color: #000;
     font-family: "Lexend Deca", system-ui, sans-serif;
 }
 
@@ -20,8 +20,6 @@ body {
 /* ---------- page background ---------- */
 main {
     background:
-        radial-gradient(60rem 30rem at 85% -10%, color-mix(in srgb, var(--color-primary-2) 12%, transparent), transparent 70%),
-        radial-gradient(50rem 30rem at 0% 110%, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 70%),
         var(--color-background);
 }
 
@@ -45,7 +43,7 @@ header.dark {
     position: relative;
     z-index: 5;
     height: 4.25rem;
-    background: linear-gradient(90deg, #0f1324 0%, #141a35 45%, #1e1440 100%);
+    background: #000;
     color: #fff;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
@@ -57,7 +55,7 @@ header::after {
     right: 0;
     bottom: -1px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #5470ff 30%, #a35cff 70%, transparent);
+    background: linear-gradient(90deg, transparent, #fff 30%, #fff 70%, transparent);
     opacity: 0.35;
 }
 header .logo {
@@ -69,10 +67,7 @@ header .logo h2 {
     line-height: 2rem;
     font-weight: 800;
     letter-spacing: -1px;
-    background: linear-gradient(135deg, #ffffff 20%, #b9c3ff 60%, #c9a6ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #fff;
 }
 header .logo h2::before,
 header .logo h2::after {
@@ -84,8 +79,8 @@ header .logo .logo__version {
     letter-spacing: 0.04em;
     padding: 0.2rem 0.55rem;
     border-radius: 1rem;
-    background: linear-gradient(135deg, #5470ff, #a35cff);
-    color: #fff;
+    background: #fff;
+    color: #000;
 }
 .nav {
     column-gap: 0.25rem;
@@ -108,7 +103,7 @@ header .logo .logo__version {
     bottom: 0;
     height: 3px;
     border-radius: 3px 3px 0 0;
-    background: linear-gradient(90deg, #5470ff, #a35cff);
+    background: #fff;
     transform: scaleX(0);
     transition: transform 160ms ease;
 }
@@ -145,8 +140,8 @@ header .logo .logo__version {
     margin-left: 0.5rem;
     padding: 0.7rem 1.2rem;
     border-radius: 2rem;
-    background: linear-gradient(135deg, #5470ff, #a35cff);
-    color: #fff;
+    background: #fff;
+    color: #000;
     box-shadow: none;
     transition: transform 120ms ease, filter 120ms ease;
 }
@@ -202,7 +197,7 @@ header .logo .logo__version {
 .tabs .tab.selected {
     border-bottom: none;
     background: var(--gradient-primary);
-    color: #fff;
+    color: var(--color-on-primary);
 }
 
 /* ---------- form fields ---------- */
@@ -349,7 +344,7 @@ header .logo .logo__version {
 }
 .page-list .list .level.active button {
     background: var(--gradient-primary);
-    color: #fff;
+    color: var(--color-on-primary);
     border-color: transparent;
     box-shadow: none;
     transform: none;
@@ -480,7 +475,7 @@ header .logo .logo__version {
 }
 .page-leaderboard .board .user.active button {
     background: var(--gradient-primary);
-    color: #fff;
+    color: var(--color-on-primary);
     box-shadow: none;
     transform: none;
 }
@@ -566,7 +561,7 @@ header .logo .logo__version {
 .page-review .review-list button.active {
     background: var(--gradient-primary);
     border-color: transparent;
-    color: #fff;
+    color: var(--color-on-primary);
 }
 .page-review .comment-box {
     background-color: var(--color-surface-2);

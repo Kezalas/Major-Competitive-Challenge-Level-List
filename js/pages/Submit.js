@@ -4,8 +4,7 @@ import { getSupabase, friendlyError } from '../supabase.js';
 import { embed } from '../util.js';
 
 import Spinner from '../components/Spinner.js';
-/** Legacy levels (below #150) are locked and not offered here. */
-import { MAIN_LIST_SIZE as ACCEPTING_RANKS, minPercentFor } from '../score.js';
+import { minPercentFor } from '../score.js';
 
 export default {
     components: { Spinner },
@@ -149,7 +148,7 @@ export default {
         const list = (await fetchList()) ?? [];
         this.levels = list
             .map(([level], i) => level && { ...level, rank: i + 1 })
-            .filter((l) => l && l.rank <= ACCEPTING_RANKS);
+            .filter(Boolean);
         const pre = this.$route.query.level;
         if (pre && this.levels.some((l) => l.path === pre)) this.levelPath = pre;
         this.loading = false;

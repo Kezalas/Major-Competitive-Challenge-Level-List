@@ -163,27 +163,3 @@
 .page-list .list-search__empty {
     padding: 1rem;
 }
-.page-list .list .legacy-divider td {
-    padding: 1.5rem 0 0.75rem;
-}
-.page-list .legacy-divider__line {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: #f0a500;
-}
-.page-list .legacy-divider__line {
-    justify-content: center;
-}
-.page-list .list .legacy-row .rank p,
-.page-list .list .legacy-row .level:not(.active) button {
-    opacity: 0.6;
-}
-.page-list .legacy-banner {
-    align-self: flex-start;
-    padding: 0.4rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #f0a500;
-    color: #f0a500;
-    background-color: rgba(240, 165, 0, 0.1);
-}

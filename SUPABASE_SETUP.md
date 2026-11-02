@@ -156,14 +156,14 @@ Records und Creator/Publisher-Credits („Created" im Profil) – zum Account, u
 `/#/player/<GD-Name>` leitet auf das Profil weiter. Wer den GD-Namen ändert, braucht
 eine neue Bestätigung.
 
-### Records, Progress und Legacy
+### Records und Progress
+
+Die Liste hat **kein Limit**: jedes Level nimmt Records an, egal auf welchem Platz.
 
 - **#1 – #75**: Records ab dem „Percent to qualify" des Levels (Progress-Records zählen
   mit weniger Punkten, wie bisher).
-- **#76 – #150**: nur 100 %.
+- **ab #76**: nur 100 %.
 - Punkte gibt es nur für die Top 100 (wie bisher).
-- **ab #151 = Legacy**: In der Liste steht eine „Legacy"-Trennlinie, die Levels tauchen im
-  Einreichformular nicht auf und nehmen keine neuen Records an.
 
 Das prüft auch die Datenbank. Spieler können auf einem Level, auf dem sie schon einen
 Record haben, nur einen **besseren** Prozentwert einreichen (z. B. erst 60 %, später 100 %);

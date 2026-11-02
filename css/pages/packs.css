@@ -18,7 +18,7 @@ main.page-packs {
     align-items: start;
 }
 .pack-card {
-    --pack: #0043dc;
+    --pack: #444444;
     border: 1px solid rgba(127, 127, 127, 0.35);
     border-top: 6px solid var(--pack);
     border-radius: 0.75rem;

@@ -1,6 +1,5 @@
 import { fetchLeaderboard } from '../content.js';
 import { localize, playerRoute, podium } from '../util.js';
-import { MAIN_LIST_SIZE } from '../score.js';
 
 import Spinner from '../components/Spinner.js';
 import Flag from '../components/Flag.js';
@@ -13,7 +12,6 @@ export default {
         ProfileSummary,
     },
     data: () => ({
-        MAIN_LIST_SIZE,
         leaderboard: [],
         loading: true,
         selected: 0,
@@ -54,13 +52,13 @@ export default {
                         <table class="table">
                             <tr v-for="score in entry.verified">
                                 <td class="rank">
-                                    <p :title="'#' + score.rank">{{ score.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + score.rank }}</p>
+                                    <p>#{{ score.rank }}</p>
                                 </td>
                                 <td class="level">
                                     <a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a>
                                 </td>
                                 <td class="score">
-                                    <p>{{ score.rank > MAIN_LIST_SIZE ? '0' : '+' + localize(score.score) }}</p>
+                                    <p>+{{ localize(score.score) }}</p>
                                 </td>
                             </tr>
                         </table>
@@ -68,13 +66,13 @@ export default {
                         <table class="table">
                             <tr v-for="score in entry.completed">
                                 <td class="rank">
-                                    <p :title="'#' + score.rank">{{ score.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + score.rank }}</p>
+                                    <p>#{{ score.rank }}</p>
                                 </td>
                                 <td class="level">
                                     <a class="type-label-lg" target="_blank" :href="score.link">{{ score.level }}</a>
                                 </td>
                                 <td class="score">
-                                    <p>{{ score.rank > MAIN_LIST_SIZE ? '0' : '+' + localize(score.score) }}</p>
+                                    <p>+{{ localize(score.score) }}</p>
                                 </td>
                             </tr>
                         </table>
@@ -82,13 +80,13 @@ export default {
                         <table class="table">
                             <tr v-for="score in entry.progressed">
                                 <td class="rank">
-                                    <p :title="'#' + score.rank">{{ score.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + score.rank }}</p>
+                                    <p>#{{ score.rank }}</p>
                                 </td>
                                 <td class="level">
                                     <a class="type-label-lg" target="_blank" :href="score.link">{{ score.percent }}% {{ score.level }}</a>
                                 </td>
                                 <td class="score">
-                                    <p>{{ score.rank > MAIN_LIST_SIZE ? '0' : '+' + localize(score.score) }}</p>
+                                    <p>+{{ localize(score.score) }}</p>
                                 </td>
                             </tr>
                         </table>

@@ -88,7 +88,7 @@ export default {
             return Boolean(this.profile && auth.profile?.id === this.profile.id);
         },
         bannerBackground() {
-            const c = this.profile?.banner_color || '#0043dc';
+            const c = this.profile?.banner_color || '#444444';
             return `linear-gradient(135deg, ${c}, #1c1b1f)`;
         },
         pinned() {

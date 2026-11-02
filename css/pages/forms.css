@@ -191,7 +191,7 @@ h1 .flag {
 }
 .badge--staff {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-on-primary);
     margin-right: 0.5rem;
 }
 .submit-link {

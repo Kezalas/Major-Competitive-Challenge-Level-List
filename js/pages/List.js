@@ -2,7 +2,7 @@ import { store } from "../main.js";
 import { auth } from "../auth.js";
 import { embed, hzLabel, podium } from "../util.js";
 import { faceFile } from "../faces.js";
-import { isLegacy, minPercentFor, score, MAIN_LIST_SIZE, POINT_RANKS, PROGRESS_RANKS } from "../score.js";
+import { minPercentFor, score, POINT_RANKS, PROGRESS_RANKS } from "../score.js";
 import { fetchEditors, fetchList } from "../content.js";
 
 import Spinner from "../components/Spinner.js";
@@ -33,15 +33,9 @@ export default {
                 <p v-if="search && visible.length === 0" class="muted list-search__empty">No level found.</p>
                 <table class="list" v-if="list">
                     <template v-for="[[level, err], i] in visible">
-                    <tr v-if="i === firstLegacyVisible" class="legacy-divider">
-                        <td colspan="2">
-                            <div class="legacy-divider__line"><span class="type-label-lg">Legacy</span></div>
-                        </td>
-                    </tr>
-                    <tr :class="{ 'legacy-row': isLegacy(i + 1) }">
+                    <tr>
                         <td class="rank" :class="podium(i + 1)">
-                            <p v-if="!isLegacy(i + 1)" class="type-label-lg">#{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg" :title="'#' + (i + 1)">Legacy</p>
+                            <p class="type-label-lg">#{{ i + 1 }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i">
@@ -54,7 +48,6 @@ export default {
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
-                    <p v-if="isLegacy(selected + 1)" class="legacy-banner type-label-lg">Legacy</p>
                     <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
@@ -78,9 +71,8 @@ export default {
                         </li>
                     </ul>
                     <h2>Records</h2>
-                    <p v-if="minPercent != null"><strong>{{ minPercent }}%</strong> or better to qualify</p>
-                    <p v-else>This level <strong>does not accept</strong> new records.</p>
-                    <router-link v-if="!isLegacy(selected + 1) && auth.enabled" class="type-label-lg link submit-link" :to="{ path: '/submit', query: { level: level.path } }">Submit a record for this level</router-link>
+                    <p><strong>{{ minPercent }}%</strong> or better to qualify</p>
+                    <router-link v-if="auth.enabled" class="type-label-lg link submit-link" :to="{ path: '/submit', query: { level: level.path } }">Submit a record for this level</router-link>
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
@@ -146,10 +138,7 @@ export default {
                         Do not use easy modes, only a record of the unmodified level qualifies
                     </p>
                     <p>
-                        Levels #1 - #{{ PROGRESS_RANKS }} accept progress records from the percentage shown on the level, levels #{{ PROGRESS_RANKS + 1 }} - #{{ MAIN_LIST_SIZE }} only 100%. Only the top {{ POINT_RANKS }} give points
-                    </p>
-                    <p>
-                        Levels below #{{ MAIN_LIST_SIZE }} are on the Legacy List: they are locked and do not accept records anymore
+                        Levels #1 - #{{ PROGRESS_RANKS }} accept progress records from the percentage shown on the level, all levels below only 100%. Only the top {{ POINT_RANKS }} give points
                     </p>
                 </div>
             </div>
@@ -165,7 +154,6 @@ export default {
         roleIconMap,
         store,
         auth,
-        MAIN_LIST_SIZE,
         POINT_RANKS,
         PROGRESS_RANKS,
     }),
@@ -175,10 +163,6 @@ export default {
         },
     },
     computed: {
-        /** index of the first Legacy level that is currently shown (for the divider) */
-        firstLegacyVisible() {
-            return this.visible.find(([, i]) => isLegacy(i + 1))?.[1] ?? -1;
-        },
         /** [[level, err], index] pairs matching the search (rank numbers stay the same) */
         visible() {
             const all = (this.list ?? []).map((entry, i) => [entry, i]);
@@ -252,7 +236,6 @@ export default {
         }
     },
     methods: {
-        isLegacy,
         podium,
         selectPath(path) {
             if (!path || !this.list) return;

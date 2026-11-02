@@ -1,6 +1,5 @@
 import { createdBy, fetchLeaderboard, fetchProfiles, makeCanonical } from '../content.js';
 import { localize, playerRoute } from '../util.js';
-import { MAIN_LIST_SIZE } from '../score.js';
 
 import Spinner from '../components/Spinner.js';
 import ProfileSummary from '../components/ProfileSummary.js';
@@ -25,28 +24,28 @@ export default {
                     <h2 v-if="entry.verified.length">Verified ({{ entry.verified.length }})</h2>
                     <table class="table player-table" v-if="entry.verified.length">
                         <tr v-for="s in entry.verified">
-                            <td class="rank"><p :title="'#' + s.rank">{{ s.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + s.rank }}</p></td>
+                            <td class="rank"><p>#{{ s.rank }}</p></td>
                             <td class="level"><router-link class="type-label-lg" :to="{ path: '/', query: { level: s.path } }">{{ s.level }}</router-link></td>
                             <td><a class="type-label-md link" :href="s.link" target="_blank">Video</a></td>
-                            <td class="score"><p>{{ s.rank > MAIN_LIST_SIZE ? '0' : '+' + localize(s.score) }}</p></td>
+                            <td class="score"><p>+{{ localize(s.score) }}</p></td>
                         </tr>
                     </table>
                     <h2 v-if="entry.completed.length">Completed ({{ entry.completed.length }})</h2>
                     <table class="table player-table" v-if="entry.completed.length">
                         <tr v-for="s in entry.completed">
-                            <td class="rank"><p :title="'#' + s.rank">{{ s.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + s.rank }}</p></td>
+                            <td class="rank"><p>#{{ s.rank }}</p></td>
                             <td class="level"><router-link class="type-label-lg" :to="{ path: '/', query: { level: s.path } }">{{ s.level }}</router-link></td>
                             <td><a class="type-label-md link" :href="s.link" target="_blank">Video</a></td>
-                            <td class="score"><p>{{ s.rank > MAIN_LIST_SIZE ? '0' : '+' + localize(s.score) }}</p></td>
+                            <td class="score"><p>+{{ localize(s.score) }}</p></td>
                         </tr>
                     </table>
                     <h2 v-if="entry.progressed.length">Progressed ({{ entry.progressed.length }})</h2>
                     <table class="table player-table" v-if="entry.progressed.length">
                         <tr v-for="s in entry.progressed">
-                            <td class="rank"><p :title="'#' + s.rank">{{ s.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + s.rank }}</p></td>
+                            <td class="rank"><p>#{{ s.rank }}</p></td>
                             <td class="level"><router-link class="type-label-lg" :to="{ path: '/', query: { level: s.path } }">{{ s.percent }}% {{ s.level }}</router-link></td>
                             <td><a class="type-label-md link" :href="s.link" target="_blank">Video</a></td>
-                            <td class="score"><p>{{ s.rank > MAIN_LIST_SIZE ? '0' : '+' + localize(s.score) }}</p></td>
+                            <td class="score"><p>+{{ localize(s.score) }}</p></td>
                         </tr>
                     </table>
                 </template>
@@ -56,7 +55,7 @@ export default {
                     <h2>Created ({{ created.length }})</h2>
                     <table class="table player-table">
                         <tr v-for="s in created">
-                            <td class="rank"><p :title="'#' + s.rank">{{ s.rank > MAIN_LIST_SIZE ? 'Legacy' : '#' + s.rank }}</p></td>
+                            <td class="rank"><p>#{{ s.rank }}</p></td>
                             <td class="level"><router-link class="type-label-lg" :to="{ path: '/', query: { level: s.path } }">{{ s.level }}</router-link></td>
                             <td><a class="type-label-md link" :href="s.link" target="_blank">Video</a></td>
                             <td class="score"></td>
@@ -67,7 +66,6 @@ export default {
         </main>
     `,
     data: () => ({
-        MAIN_LIST_SIZE,
         loading: true,
         board: [],
         profile: null,

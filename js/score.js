@@ -53,22 +53,14 @@ export function round(num) {
     }
 }
 
-/** Ranks 1..150 accept records; everything below is Legacy (locked, no points). */
-export const MAIN_LIST_SIZE = 150;
-
 /** Only ranks 1..100 give points. */
 export const POINT_RANKS = 100;
 
 /** Ranks 1..75 also accept progress records (from the level's "percent to qualify"). */
 export const PROGRESS_RANKS = 75;
 
-export function isLegacy(rank) {
-    return rank > MAIN_LIST_SIZE;
-}
-
-/** Lowest percentage a record on this rank needs (null = no records accepted). */
+/** Lowest percentage a record on this rank needs. The list has no limit: every rank accepts records. */
 export function minPercentFor(rank, percentToQualify) {
-    if (isLegacy(rank)) return null;
     if (rank > PROGRESS_RANKS) return 100;
     const p = Number(percentToQualify);
     return p >= 1 && p <= 100 ? p : 100;

@@ -178,7 +178,7 @@ export default {
         entry: null,
         bio: '',
         bannerUrl: '',
-        bannerColor: '#0043dc',
+        bannerColor: '#444444',
         bannerFailed: false,
         pinned: [],
         gdUsername: '',
@@ -204,7 +204,7 @@ export default {
                 this.nation = p?.nation ?? '';
                 this.bio = p?.bio ?? '';
                 this.bannerUrl = p?.banner_url ?? '';
-                this.bannerColor = p?.banner_color ?? '#0043dc';
+                this.bannerColor = p?.banner_color ?? '#444444';
                 this.pinned = [...(p?.pinned_levels ?? [])];
                 this.gdUsername = p?.gd_username ?? '';
             },

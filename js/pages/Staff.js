@@ -2,7 +2,7 @@ import { auth } from '../auth.js';
 import { REGIONS, fetchDbLevels, fetchList, fetchPacks, fetchTournaments, isDatabaseMode, regionName } from '../content.js';
 import { getSupabase, fetchAll, friendlyError } from '../supabase.js';
 import { embed, hzLabel, playerRoute } from '../util.js';
-import { MAIN_LIST_SIZE, PROGRESS_RANKS, minPercentFor, score } from '../score.js';
+import { PROGRESS_RANKS, minPercentFor, score } from '../score.js';
 
 import Spinner from '../components/Spinner.js';
 import Flag from '../components/Flag.js';
@@ -32,7 +32,7 @@ function tournamentToForm(t) {
 }
 
 function emptyPackForm() {
-    return { name: '', description: '', color: '#0043dc', points: 0, position: 0, levels: [] };
+    return { name: '', description: '', color: '#444444', points: 0, position: 0, levels: [] };
 }
 
 function emptyLevelForm() {
@@ -452,7 +452,6 @@ export default {
                             ID: <strong>{{ selected.level_id ?? 'N/A' }}</strong>
                             <span v-if="levelInfo && String(levelInfo.id) !== String(selected.level_id)" class="warn"> (list says {{ levelInfo.id }})</span>
                             <span v-if="!levelInfo" class="warn"> (level is not on the list)</span>
-                            <span v-else-if="levelInfo.rank > MAIN_LIST_SIZE" class="warn"> (Legacy, does not accept records)</span>
                             <span v-else-if="Number(edit.percent) < levelMinPercent" class="warn"> (needs at least {{ levelMinPercent }}% on this rank)</span>
                         </p>
                         <p v-if="duplicate" class="form-info">This player already has a record on this level on the list.</p>
@@ -536,7 +535,6 @@ export default {
         editingTournament: null,
         tournamentsMsg: '',
         REGIONS,
-        MAIN_LIST_SIZE,
         PROGRESS_RANKS,
         editingPath: null,
         levelsMsg: '',
